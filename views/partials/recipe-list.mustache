@@ -1,0 +1,48 @@
+<div class="add-recipe-page row">
+    <div class="col-lg-12">
+        <h3 class="text-center"> All Recipes </h3>
+        <div>
+            <a href="/new-recipe" class="btn btn-primary">Add New Recipe</a>
+        </div>
+        <br>
+        <div>
+            <table class="table table-responsive table-bordered">
+                <tr>
+                    <th>S.No</th>
+                    <th>Title</th>
+                    <th>Number of Service</th>
+                    <th>Ingredients</th>
+                    <th>Cook Time</th>
+                    <th>Cook Temperature</th>
+                    <th>Instructions</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                {{#recipes}}
+                    <tr>
+                        <td> {{row_number}} </td>
+                        <td> {{title}} </td>
+                        <td> {{serving_count}} </td>
+                        <td>
+                            <div class="ingredients-list">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <span> <b>Name: </b> {{ingredient_name}}</span>
+                                        <span> <b>Quantity: </b> {{quantity}} ounce</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </td>
+                        <td> {{cook_time}} </td>
+                        <td> {{cook_temperature}} </td>
+                        <td> {{instructions}} </td>
+                        <td> <a href="/edit-recipe/{{id}}"> Edit </a> </td>
+                        <td> <a href="javascript:;" data-recipe-id="{{id}}" class="delete-recipe"> Delete </a> </td>
+                    </tr>
+                {{/recipes}}
+
+            </table>
+        </div>
+    </div>
+</div>

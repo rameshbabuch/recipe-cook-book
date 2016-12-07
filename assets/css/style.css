@@ -1,0 +1,30 @@
+.ingredient-wrap .link{
+    margin-right: 20px;
+    float: right;
+}
+.ingredient-div{
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.ingredient-div .sn{
+    width: 40px;
+}
+.ingredient-div .name{
+    width: 300px;
+}
+.ingredient-div .quantity{
+    width: 60px;
+}
+.float-left{
+    float: left;
+}
+.display-block{
+    display: block;
+    clear: both;
+}
+.error{
+    color: #f87721;
+    display: none;
+    text-align: center;
+}

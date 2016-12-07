@@ -1,0 +1,80 @@
+<div class="add-recipe-page row">
+    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-0">
+        <h3 class="text-center"> Add New Recipe </h3>
+        <div>
+            <a href="/" class="link"> < Home</a>
+        </div>
+        <br>
+        <div>
+            <form class="form" action="/submit-recipe" method="post" id="recipe-form">
+                <div class="form-group">
+                    <label> Title</label>
+                    <input type="text" class="form-control" maxlength="255" name="title" id="title" value="{{recipe.title}}" >
+                    <div class="error error_title">Enter title</div>
+                </div>
+                <div class="form-group">
+                    <label> Number of Serving </label>
+                    <input type="text" class="form-control" maxlength="255" name="serving_count" id="serving_count" value="{{recipe.serving_count}}" >
+                    <div class="error error_serving_count">Enter number of serving</div>
+                </div>
+                <div class="form-group ingredient-wrap">
+                    <p>
+                        <label> Ingredients </label>
+                        <a href="javascript:;" class="link add-ingredient"> + Add New </a>
+                    </p>
+
+                    <div class="ingredient-div">
+                        <table class="table table-responsive table-bordered ingredient-table">
+                            <thead>
+                                <tr>
+                                    <th class="name">Name</th>
+                                    <th class="quantity">Quantity</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#recipe.ingredients}}
+                                    <tr>
+                                        <td> <input type="text" class="form-control ingredient_name" name="ingredient_name[]" maxlength="255" value="{{ingredient_name}}"> </td>
+                                        <td> <input type="text" class="form-control ingredient_quantity" name="ingredient_quantity[]" maxlength="20" value="{{quantity}}"> </td>
+                                        <td> <a href="javascript:;" class="link delete">Delete</a> </td>
+                                    </tr>
+                                {{/recipe.ingredients}}
+                            </tbody>
+                        </table>
+                    </div>
+                  <div class="error error_ingredient">At least one ingredient should be added</div> <br>
+                  <div class="error error_ingredient_content">Ingredient should not be empty</div>
+                </div>
+                <div class="form-group display-block">
+                    <label> Cook Time (in minutes hh:mm:ss)</label>
+                    <input type="text" class="form-control" maxlength="20" name="cook_time" id="cook_time" value="{{recipe.cook_time}}"  placeholder="00:30:00">
+                    <div class="error error_cook_time">Enter cook time</div>
+                </div>
+                <div class="form-group">
+                    <label> Cook Temperature (in degrees)</label>
+                    <input type="text" class="form-control" maxlength="20" name="cook_temperature" id="cook_temperature" value="{{recipe.cook_temperature}}">
+                    <div class="error error_cook_temperature">Enter cook temperature</div>
+                </div>
+                <div class="form-group">
+                    <label> Instructions </label>
+                    <textarea class="form-control" maxlength="255" name="instructions" id="instructions" rows="6" >
+                        {{recipe.instructions}}
+                    </textarea>
+                    <div class="error error_instructions">Enter instructions</div>
+                </div>
+                <div class="form-group">
+                    <label> Chef Email </label>
+                    <input type="text" class="form-control" maxlength="100" name="chef_email" id="chef_email" value="{{recipe.title}}" >
+                    <div class="error error_chef_email">Enter chef email</div>
+                    <input type="hidden" value="{{recipe.id}}" name="recipe_id">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit"> Submit </button>
+                    <button class="btn btn-default" type="reset"> Reset </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
